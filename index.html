@@ -7,20 +7,71 @@
     <link rel="stylesheet" href="/reset.css">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- Temporary Styles to force the grid layout -->
+    <style>
+        .welcome-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            background-color: #F0F5F0; /* Lightest sage green */
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 1rem;
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+        }
+        .grid-item {
+            background-color: #FFFFFF;
+            border: 1px solid #DDE5DD;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: background-color 0.3s, color 0.3s;
+            color: #2A3F3A;
+            font-family: 'Inter', sans-serif;
+        }
+        .grid-item h1, .grid-item h2, .grid-item h4, .grid-item p, .grid-item span {
+            font-family: 'Playfair Display', serif;
+        }
+        .grid-item h1 { font-size: 3rem; line-height: 1.1; }
+        .grid-item h2 { font-size: 1.5rem; margin: 0; }
+        .grid-item h4 { font-size: 0.9rem; opacity: 0.6; margin-bottom: 0.5em; text-transform: uppercase; letter-spacing: 0.5px;}
+        .item-large { grid-column: 1 / 3; grid-row: 1 / 2; }
+        .item-quote { grid-column: 3 / 5; grid-row: 1 / 2; display: flex; flex-direction: column; justify-content: center; }
+        .item-quote p { font-size: 1.5rem; }
+        .item-quote span { align-self: flex-end; opacity: 0.6; }
+        .item-nav { grid-column: 1 / 2; grid-row: 2 / 3; }
+        .item-nav a { display: block; font-weight: 600; padding: 0.5rem 0; }
+        .item-nav a:hover { color: #5A7D7C; }
+        .item-contact { grid-column: 2 / 3; grid-row: 2 / 3; background-color: #5A7D7C; color: #F0F5F0; }
+        .item-contact:hover { background-color: #2A3F3A; }
+        .arrow { transition: transform 0.3s; display: inline-block; }
+        .item-contact:hover .arrow, .item-about:hover .arrow { transform: translateX(5px); }
+        .item-about { grid-column: 3 / 4; grid-row: 2 / 3; }
+        .item-about p { font-size: 0.9rem; }
+        .item-looking-for { grid-column: 4 / 5; grid-row: 2 / 3; background-color: #2A3F3A; color: #F0F5F0; }
+        .scroll-down-indicator { position: absolute; bottom: 2rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; }
+        .scroll-down-indicator a { display: flex; flex-direction: column; align-items: center; }
+        .scroll-down-indicator span { display: block; width: 1px; height: 30px; background-color: #2A3F3A; margin-bottom: 0.5rem; }
+
+        @media (max-width: 900px) {
+            .grid-container { grid-template-columns: 1fr; grid-template-rows: auto; height: auto; }
+            .grid-item { grid-column: auto; grid-row: auto; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Initial Loading Screen -->
-    <div id="loader">
-        <h1>Kyla Fallis</h1>
-        <button id="enter-button">Enter</button>
-    </div>
+    <div id="overlay"></div>
+    <div id="menu-icon">&#9776;</div>
 
-    <!-- The main content, initially hidden -->
-    <div id="page-content" class="hidden">
-        <div id="overlay"></div>
-        <div id="menu-icon">&#9776;</div>
-
-        <nav id="sidebar">
+    <nav id="sidebar">
             <ul>
                 <li><a href="#welcome-grid">Home</a></li>
                 <li><a href="#profile">About Me</a></li>
