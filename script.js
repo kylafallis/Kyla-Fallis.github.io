@@ -59,16 +59,20 @@ document.addEventListener('DOMContentLoaded', function() {
             const welcomeScreen = document.getElementById('welcome-grid');
             if (!welcomeScreen) return;
 
-            // Calculate how far down the welcome screen we've scrolled
+            // Calculate the effective scrollable height of the welcome screen
             const scrollableHeight = welcomeScreen.offsetHeight - window.innerHeight;
             
             if (window.scrollY > 0 && window.scrollY < scrollableHeight) {
+                // Calculate how far into the welcome screen the user has scrolled
                 const scrollPercent = window.scrollY / scrollableHeight;
-                const newHeight = 30 + (30 * scrollPercent); // Starts at 30px, grows to 60px
+                // Grow the arrow from 30px to 60px based on scroll progress
+                const newHeight = 30 + (30 * scrollPercent); 
                 scrollArrow.style.height = `${newHeight}px`;
             } else if (window.scrollY >= scrollableHeight) {
+                 // Max out the height if scrolled past the welcome screen
                  scrollArrow.style.height = `60px`;
             } else {
+                // Reset to initial height if at the very top
                 scrollArrow.style.height = `30px`;
             }
         });
