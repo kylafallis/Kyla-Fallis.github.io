@@ -7,7 +7,6 @@
     --card-green-1: #2A3F3A; /* Darkest */
     --card-green-2: #38544B;
     --card-green-3: #5A7D7C; /* Mid-tone accent */
-    --card-green-4: #B8C4B8; /* Lightest */
     --border: #3D524A;
     --heading-font: 'Playfair Display', serif;
     --body-font: 'Inter', sans-serif;
@@ -136,7 +135,7 @@ a { color: inherit; text-decoration: none; }
     color: #2A3F3A; 
 }
 #banner { background-color: var(--card-green-3); color: white; text-align: center; padding: 4em 1em; }
-.headshot { width: 150px; height: 150px; border-radius: 50%; border: 5px solid var(--dark-green-bg); object-fit: cover; margin-bottom: 1em; }
+#main-content .headshot { width: 150px; height: 150px; border-radius: 50%; border: 5px solid var(--dark-green-bg); object-fit: cover; margin-bottom: 1em; }
 #banner h1 { font-size: 3em; color: white; margin: 0; }
 #banner p { font-size: 1.2em; color: var(--text-light); }
 .card { background-color: #FFFFFF; margin: 4em auto; padding: 2em; border-radius: 12px; border: 1px solid #DDE5DD; max-width: 1000px; }
@@ -173,4 +172,3 @@ a { color: inherit; text-decoration: none; }
         max-height: 400px;
     }
 }
-
